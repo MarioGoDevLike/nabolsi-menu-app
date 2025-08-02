@@ -1,0 +1,157 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  overflow: hidden;
+}
+
+.menu-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh; /* ⚠️ Important: Use full height always */
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  padding: 10px 5vw;
+}
+
+.restaurant-name {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  color: #a41e22;
+  font-weight: bold;
+}
+
+.restaurant-tagline {
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Slider: flex row for arrows outside image */
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* space between arrows and image */
+  width: 100%;
+  max-width: 1000px;
+  margin: 10px 0;
+}
+
+/* Image wrapper stays fixed size with scroll if needed */
+.image-wrapper {
+  flex-shrink: 0;
+  width: 80vw;
+  max-width: 800px;
+  height: 60vh;
+  overflow: auto; /* allow scroll if image too big */
+  border-radius: 15px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+/* Nav buttons: no absolute positioning, smaller circle */
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 3;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav-button svg {
+  width: 18px;
+  height: 18px;
+  fill: #333;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 10px auto;
+  padding: 0 10px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.thumbnail {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border-color: #a41e22;
+}
+
+/* Footer */
+.footer {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: auto;
+  padding: 10px 5vw;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .nav-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+
+  .slide-image {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+}
