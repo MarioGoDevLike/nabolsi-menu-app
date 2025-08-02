@@ -14,25 +14,27 @@ html, body, #root {
   overflow: hidden;
 }
 
+/* Container setup */
 .slider-container {
-  position: relative; /* Make this relative for absolute positioning inside */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  gap: 20px;
   padding: 20px;
+  gap: 20px;
   box-sizing: border-box;
-  max-width: 1400px;   /* max width container on big screens */
+  max-width: 1400px;
   margin: 0 auto;
+  overflow: auto;
 }
 
 /* Image wrapper */
 .image-wrapper {
-  flex-grow: 1;
-  max-width: 1200px;      /* Allow bigger image wrapper on big screens */
-  max-height: 90vh;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 85vh;
   overflow: auto;
   display: flex;
   justify-content: center;
@@ -40,23 +42,30 @@ html, body, #root {
   background: #000;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(164, 30, 34, 0.5);
-  position: relative; /* Needed for absolute nav buttons inside */
 }
 
-/* Image itself */
+/* Image */
 .slide-image {
   max-width: 100%;
-  height: 600px;
+  max-height: 80vh;
+  height: auto;
   object-fit: contain;
   display: block;
   user-select: none;
+  border-radius: 10px;
 }
 
-/* Nav buttons */
+/* Button row (NEW) */
+.button-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Navigation buttons */
 .nav-button {
-  position: absolute; /* overlay inside image-wrapper */
-  top: 50%;
-  transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 50%;
@@ -68,9 +77,6 @@ html, body, #root {
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.4);
   transition: background-color 0.3s ease;
-  user-select: none;
-  z-index: 10;
-  flex-shrink: 0;
 }
 
 .nav-button:hover {
@@ -83,16 +89,7 @@ html, body, #root {
   fill: #333;
 }
 
-/* Position left and right buttons */
-.nav-button.left {
-  left: 15px;
-}
-
-.nav-button.right {
-  right: 15px;
-}
-
-/* Responsive: smaller buttons on small screens */
+/* Responsive tweaks */
 @media (max-width: 900px) {
   .slider-container {
     gap: 15px;
@@ -102,6 +99,10 @@ html, body, #root {
 
   .image-wrapper {
     max-width: 90vw;
+  }
+
+  .slide-image {
+    max-height: 70vh;
   }
 }
 

@@ -20,12 +20,6 @@ function App() {
 
   return (
     <div className="slider-container">
-      <button className="nav-button left" onClick={prevImage} aria-label="Previous Image">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-        </svg>
-      </button>
-
       <div className="image-wrapper">
         <img
           src={images[currentIndex]}
@@ -34,11 +28,19 @@ function App() {
         />
       </div>
 
-      <button className="nav-button right" onClick={nextImage} aria-label="Next Image">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
-        </svg>
-      </button>
+      <div className="button-row">
+        <button className="nav-button" onClick={prevImage} aria-label="Previous Image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+
+        <button className="nav-button" onClick={nextImage} aria-label="Next Image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+          </svg>
+        </button>
+      </div>
     </div>
   )
 }
