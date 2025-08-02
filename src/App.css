@@ -15,6 +15,7 @@ html, body, #root {
 }
 
 .slider-container {
+  position: relative; /* Make this relative for absolute positioning inside */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,34 +26,6 @@ html, body, #root {
   box-sizing: border-box;
   max-width: 1400px;   /* max width container on big screens */
   margin: 0 auto;
-}
-
-/* Nav buttons */
-.nav-button {
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  transition: background-color 0.3s ease;
-  user-select: none;
-  flex-shrink: 0;
-  z-index: 10;
-}
-
-.nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.nav-button svg {
-  width: 24px;
-  height: 24px;
-  fill: #333;
 }
 
 /* Image wrapper */
@@ -67,15 +40,56 @@ html, body, #root {
   background: #000;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(164, 30, 34, 0.5);
+  position: relative; /* Needed for absolute nav buttons inside */
 }
 
 /* Image itself */
 .slide-image {
   max-width: 100%;
-  max-height: 600px;
+  height: 600px;
   object-fit: contain;
   display: block;
   user-select: none;
+}
+
+/* Nav buttons */
+.nav-button {
+  position: absolute; /* overlay inside image-wrapper */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: background-color 0.3s ease;
+  user-select: none;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-button svg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+}
+
+/* Position left and right buttons */
+.nav-button.left {
+  left: 15px;
+}
+
+.nav-button.right {
+  right: 15px;
 }
 
 /* Responsive: smaller buttons on small screens */
