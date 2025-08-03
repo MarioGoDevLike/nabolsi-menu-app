@@ -37,9 +37,6 @@ function App() {
           className="slide-image"
         />
       </div>
-      <div>
-        <input type="button" value="" hidden />
-      </div>
     </div>
   )
 }
