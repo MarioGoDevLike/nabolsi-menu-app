@@ -20,6 +20,9 @@ function App() {
 
   return (
     <div className="slider-container">
+      <div>
+        <h1 className='restaurant-title'>Nabolsi Al Shahira</h1>
+      </div>
       <div className="image-wrapper">
         <img
           src={images[currentIndex]}

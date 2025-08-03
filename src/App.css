@@ -5,16 +5,18 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: #000;
   color: #fff;
   overflow: hidden;
 }
 
-/* Container setup */
+/* Container */
 .slider-container {
   display: flex;
   flex-direction: column;
@@ -22,40 +24,38 @@ html, body, #root {
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  padding: 20px;
+  padding: 0;
   gap: 20px;
   box-sizing: border-box;
-  max-width: 1400px;
-  margin: 0 auto;
   overflow: auto;
 }
 
 /* Image wrapper */
 .image-wrapper {
   width: 100%;
-  max-width: 1200px;
-  max-height: 85vh;
-  overflow: auto;
+  max-width: 100vw;
+  max-height: 90vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(164, 30, 34, 0.5);
+  background: none;
 }
 
 /* Image */
 .slide-image {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 100%;
   height: auto;
   object-fit: contain;
   display: block;
   user-select: none;
-  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
-/* Button row (NEW) */
+/* Button row */
 .button-row {
   display: flex;
   gap: 20px;
@@ -66,7 +66,7 @@ html, body, #root {
 
 /* Navigation buttons */
 .nav-button {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #fae55c;
   border: none;
   border-radius: 50%;
   width: 48px;
@@ -75,7 +75,6 @@ html, body, #root {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
   transition: background-color 0.3s ease;
 }
 
@@ -84,21 +83,21 @@ html, body, #root {
 }
 
 .nav-button svg {
+  font-size: 100px;
   width: 24px;
   height: 24px;
   fill: #333;
 }
 
-/* Responsive tweaks */
+/* Responsive */
 @media (max-width: 900px) {
   .slider-container {
     gap: 15px;
-    padding: 10px;
-    max-width: 100vw;
+    padding: 0;
   }
 
   .image-wrapper {
-    max-width: 90vw;
+    max-width: 100vw;
   }
 
   .slide-image {
@@ -107,13 +106,39 @@ html, body, #root {
 }
 
 @media (max-width: 600px) {
-  .nav-button {
-    width: 40px;
-    height: 40px;
+  .nav-button svg {
+    width: 100%;
+    height: 100%;
+    fill: #333;
   }
 
-  .nav-button svg {
-    width: 18px;
-    height: 18px;
+  .nav-button {
+    width: 48px;
+    height: 48px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+
+.restaurant-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fae55c;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  .restaurant-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-title {
+    font-size: 1.6rem;
   }
 }
